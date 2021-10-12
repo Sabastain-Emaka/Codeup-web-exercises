@@ -3,7 +3,7 @@ console.log("Hello from external JavaScript");
 var alertWelcomeToMyWebsite = alert('Welcome to my Website!');
 
 var promptWhatIsYourFavoriteColor = prompt("what is your favorite color");
-alert("Ccolor "+ " Amazing " + "promptWhatIsYourFavorite " + "is my favorite color too!");
+alert("Color "+ " Amazing " + "promptWhatIsYourFavorite " + "is my favorite color too!");
 
 var costPerPay = 3;
 var littleMermaid = prompt( "For how many days do you want to rent little mermaid");
