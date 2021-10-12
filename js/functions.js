@@ -90,9 +90,9 @@ console.log();
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
-var tip= prompt("will you give a tip today?")
-var bill = prompt('what was the total of your bill')
-alert('bill ' * 'tip' + ' is your total amount')
+var tip= Number(prompt("how much percentage  will you like to tip?"))
+var bill = Number(prompt('what is the total of your bill'))
+alert(bill + calculateTip(bill, tip) + ' is your total amount')
 
 /**
  * TODO:
@@ -108,9 +108,10 @@ alert('bill ' * 'tip' + ' is your total amount')
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
-function applyDiscount(price, discountPercentage){
-    var discount = (price * discountPercentage);
-    console.log(discount);
-    return price - discount;
+function applyDiscount(price, discountPercentage) {
+    var discount = price * (discountPercentage/100)
+    return price-discount;
+
 }
-console.log(applyDiscount(price:45.99, discountPercentage:0.12));
+var test = applyDiscount(60, 50)
+console.log(test);
