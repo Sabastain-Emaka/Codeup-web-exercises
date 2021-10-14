@@ -9,7 +9,7 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 var Fun =prompt("sayHello")
-//defines he variable
+//defines the variable
 function sayHello (name){
     return "hello, " + name
 }
