@@ -19,4 +19,13 @@
 
 })();
 
+function typeCheck(input) {
+    if (typeof iput === 'String') {
+        return "haha, it\'s a string of a string"
+    } else {
+        return typeof input;
+    }
+
+}
+console.log('input is an empty string: ', type)
 

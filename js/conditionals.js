@@ -96,9 +96,9 @@ alert(analyzeColor(color + ' is my favorite color too'))
  */
 function calculateTotal(luckyNumber, totalAmount) {
     if (luckyNumber === 0) {
-        return totalAmount;
+        return totalAmount
     } else if (luckyNumber === 1) {
-        return totalAmount - (totalAmount * 0.1);
+         return  totalAmount-(totalAmount * 0.1)
     } else if (luckyNumber === 2) {
         return totalAmount - (totalAmount * 0.25);
     } else if (luckyNumber === 3) {
@@ -106,11 +106,15 @@ function calculateTotal(luckyNumber, totalAmount) {
     } else if (luckyNumber === 4) {
         return totalAmount - (totalAmount * 0.50);
     } else if (luckyNumber === 5) {
-        return totalAmount - totalAmount
+        return totalAmount - (totalAmount * 1);
     }
 }
+    console.log(calculateTotal(0, 100));
+    console.log(calculateTotal(1, 100));
+    console.log(calculateTotal(2, 100));
+    console.log(calculateTotal(3, 100));
+    console.log(calculateTotal(4, 100));
     console.log(calculateTotal(5, 100));
-
 
 
 /**
@@ -122,8 +126,8 @@ function calculateTotal(luckyNumber, totalAmount) {
  */
  // Generate a random number between 0 and 6
 var luckyNumber = Math.floor(Math.random() * 6);
- prompt('what is your total bill');
-calculateTotal('luckyNumber was' + luckyNumber)
+ var billTotal = prompt('what is your total bill');
+calculateTotal(luckyNumber, billTotal);
 /**
  * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
@@ -154,12 +158,14 @@ function enterNumber() {
     }
   }
     if  (typeNumber > 0) {
-    alert('this is a positive number');
-    } else {
-    alert('this is a negative number');
+    alert(typeNumber + 'this is a positive number');
+    } else  if (luckyNumber<0){
+    alert(typeNumber + 'this is a negative number');
     }
+
 console.log(typeNumber)
 
 alert('Number plus 100' + (paarseInt(typeNumber) + 100));
     enterNumber()
+
 })()
