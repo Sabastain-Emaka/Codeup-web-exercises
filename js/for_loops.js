@@ -1,19 +1,22 @@
 "use strict"
 function ShowMultiplicationTable(num) {
     for(var i =1; i <= 10; i++) {
-        var ans = num * 1;
-        console.log(num + "x" + i + "=" + ans);
+        var num = 7
+        console.log(num + "x" + i + "=" + num * i);
     }
 }
 ShowMultiplicationTable(7);
-for (var i =0; i<=10; i++);
+for (var i =0; i<=10; i++) {
 
 
-var randomNber = Math.floor(Math.random() * 200) + 20;
-if (randomNber % 2 ===0) {
-    console.log("is an even num")
-} else {
-    console.log("is an odd num");
+//
+//
+    var randomNber = Math.floor((Math.random() * 200 - 20 + 1)  + 20);
+    if (i % 2 === 0) {
+        console.log(randomNber + " is an even num")
+    } else {
+        console.log(randomNber + " is an odd num");
+    }
 }
 
  for (var i =1; i < 10; i++) {
