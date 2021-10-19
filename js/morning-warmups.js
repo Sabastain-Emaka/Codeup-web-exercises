@@ -27,5 +27,22 @@ function typeCheck(input) {
     }
 
 }
-console.log('input is an empty string: ', type)
+console.log('input is an empty string: ',)
 
+//FizzBuzz
+ for (var l=1; l <=100; l++) {
+     if (l % 15 ==0) {
+         console.log('FizzBuzz');
+     }
+     else if (l % 3 == 0) {
+
+         console.log('Fizz');
+     }
+     else if (l % 5 == 0) {
+
+         console.log('Buzz');
+     }
+     else {
+         console.log(l);
+     }
+ }
