@@ -11,7 +11,7 @@ for (var i =0; i<=10; i++) {
 
 //
 //
-    var randomNber = Math.floor((Math.random() * 200 - 20 + 1)  + 20);
+    var randomNber = Math.floor((Math.random() * 200 - 20 + 1) + 20);
     if (i % 2 === 0) {
         console.log(randomNber + " is an even num")
     } else {
