@@ -46,3 +46,8 @@ console.log('input is an empty string: ',)
          console.log(l);
      }
  }
+
+ function secondToLast(arr) {
+     return arr[arr.length-2];
+     console.log(secondToLast(arr['First', 'Second', 'Not last', 'Last']));
+ }
