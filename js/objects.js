@@ -116,7 +116,9 @@
 
             }
         },
-    ]
+    ];
+    console.log(books.length);
+    for (var i = 0; i<books.length; i++)
     /**
      * TODO:
      * Loop through the books array and output the following information about
@@ -141,12 +143,11 @@
      *      ---
      *      ...
      */
-    console.log(books)
     books.forEach(function(book,index) {
-        console.log("---");
-        console.log("Book # " + (index + 1));
+        console.log("Book # " + (books.indexOf(book) + 1));
         console.log("Title: " + book.title);
-        console.log("Author: " + book.author.firstName, book.author.lastName);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("---")
     });
     /**
      * Bonus:
@@ -159,7 +160,7 @@
      *   `showBookInfo` function.
      */
     var createBook = function (title, authorFirstName, authorLastName) {
-        var book = (title);
+        var book = {};
         book.title = title;
         book.author = {
             firstName: authorFirstName,
