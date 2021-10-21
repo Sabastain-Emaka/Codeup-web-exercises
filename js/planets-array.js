@@ -26,13 +26,13 @@
     //
 
     console.log('Adding "Pluto" to the end of the planets array.');
-    planets.push('Pluto')
+    planets.push('Pluto');
     console.log(planets);
 
     //
 
     console.log('Removing "The Sun" from the beginning of the planets array.');
-    planets.shift('The Sun')
+    planets.shift('The Sun');
     console.log(planets);
 
     //

@@ -61,7 +61,7 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 function isTwo(num) { // defines the function
-    return num == 2 // indicate the comparison
+    return num === 2 // indicate the comparison
 }
 console.log(isTwo(random)); // logs to random test the comparison above
 console.log(random); // test the various numbers.
@@ -103,7 +103,7 @@ alert(bill + calculateTip(bill, tip) + ' is your total amount')
  *
  * Example:
  * > var originalPrice = 100;
- * > var dicountPercent = .2; // 20%
+ * > var discountPercent = .2; // 20%
  * > applyDiscount(originalPrice, dicountPercent) // 80
  *
  * > applyDiscount(45.99, 0.12) // 40.4712

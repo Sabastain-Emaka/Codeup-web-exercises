@@ -51,3 +51,11 @@ console.log('input is an empty string: ',)
      return arr[arr.length-2];
      console.log(secondToLast(arr['First', 'Second', 'Not last', 'Last']));
  }
+
+ function moveToEnd(arr) {
+     var remove = arr.shift();
+     array.push(remove);
+     return arr
+ }
+console.log(moveToEnd([1, 2, 3, 4]));
+console.log(moveToEnd(['roll', 'rock', 'and']));
