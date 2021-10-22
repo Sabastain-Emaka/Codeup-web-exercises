@@ -79,7 +79,7 @@
         {
             title: "The Secret to a Happy Marriage",
             author: {
-                firstNamne: "Kumuyi",
+                firstName: "Kumuyi",
                 lastName: "William",
             }
         },
@@ -87,7 +87,7 @@
         {
             title: "Things fall apart",
             author: {
-                firstNamne: "Chinua",
+                firstName: "Chinua",
                 lastName: "Achebe",
 
             }
@@ -101,7 +101,7 @@
             }
         },
         {
-            title: "The Bueatiful Ones are not yet born",
+            title: "The Beautiful Ones are not yet born",
             author: {
                 firstName: "Anyi",
                 lastName: "Amah",
@@ -159,15 +159,16 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
-    var createBook = function (title, authorFirstName, authorLastName) {
-        var book = {};
-        book.title = title;
-        book.author = {
+    function createBook(title, authorFirstName, authorLastName) {
+        var book = {
+        title: title,
+         author:  {
             firstName: authorFirstName,
             lastName: authorLastName
-        };
+        }
+    }
         return book;
     }
-    books.push(createBook(title, authorFirstName, authorLastName));
+    books.push(createBook("The Beautiful ones are not yet born", "Anyi", "Amah"));
 
 })();
