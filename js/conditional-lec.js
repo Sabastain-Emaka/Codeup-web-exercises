@@ -17,7 +17,7 @@ function isItANumber(parameter) {
 
 console.log(isItANumber(72));
 console.log(isItANumber("Doug"));
-@@ -86,58 +86,116 @@ console.log(isItANumber("Doug"));
+
 
 // How would we write this as a if/else if/else code block?
 
