@@ -17,7 +17,7 @@
     console.log(hadBreakfast);
     console.log(hadBreakFastMessage);
 
-})();
+
 
 function typeCheck(input) {
     if (typeof iput === 'String') {
@@ -59,3 +59,31 @@ console.log('input is an empty string: ',)
  }
 console.log(moveToEnd([1, 2, 3, 4]));
 console.log(moveToEnd(['roll', 'rock', 'and']));
+
+//
+//Charmeleon
+//An Animal
+//Slow
+//Changes color
+
+var charmeleon = {
+    name: 'charmeleon',
+    description : " It changes colors",
+    height: {
+        feet : 13,
+        inches: 4
+    },
+    type: ['land', 'water']
+};
+
+
+
+
+
+
+
+
+})();
+
+
+
