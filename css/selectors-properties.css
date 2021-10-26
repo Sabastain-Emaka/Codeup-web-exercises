@@ -1,0 +1,83 @@
+/*Selectors*/
+/*HTML Element Selectors*/
+h1 {
+    color: red;
+
+}
+
+/*Class Selector*/
+
+.orange-bg{
+    background-color: orange;
+}
+
+/*ID Selector*/
+#back-to-top {
+    text-decoration: none;
+    color: hotpink;
+}
+
+#blue-bg{
+    background-color: blue;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+/*descendant Selector*/
+
+.orange-bg li {
+    font-family: Helvetica, sans-serif;
+}
+
+#parent-div h1 {
+    color: lightblue;
+}
+
+main th {
+    color: darkblue;
+}
+
+.table-info>td {
+    text-decoration: underline;
+}
+
+.container>h1 {
+    color: goldenrod;
+}
+
+.container>.card{
+    color: rebeccapurple;
+}
+
+/*Combination selector*/
+h1.orange-bg {
+    font-size: 16px;
+}
+
+ul.orange-bg {
+    font-size: 25px;
+}
+
+a:link{
+    color: olivedrab;
+}
+
+a:visited {
+    color:limegreen;
+}
+
+a:hover {
+    color: gold;
+}
+
+a:active {
+    color: royalblue;
+}
+
+
+
+
+
+
