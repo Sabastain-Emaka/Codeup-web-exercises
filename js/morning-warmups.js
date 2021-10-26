@@ -54,7 +54,7 @@ console.log('input is an empty string: ',)
 
  function moveToEnd(arr) {
      var remove = arr.shift();
-     array.push(remove);
+     arr.push(remove);
      return arr
  }
 console.log(moveToEnd([1, 2, 3, 4]));
@@ -76,6 +76,43 @@ var charmeleon = {
     type: ['land', 'water']
 };
 
+
+
+
+
+    var wrestlers = [
+        {
+            name: "Bret Hart",
+            nationality: "Canadian"
+        }, {
+            name: "Shawn Michaels",
+            nationality: "American"
+        }, {
+            name: "Christian Cage",
+            nationality: "Canadian"
+        }, {
+            name: "Keiji Mutoh",
+            nationality: "Japanese"
+        }, {
+            name: "Eddy Guerrero",
+            nationality: "American"
+        }, {
+            name: "Owen Hart",
+            nationality: "Canadian"
+        }
+    ];
+
+
+    function filterForCanadian(arr) {
+        var bucket = [];
+        arr.forEach(function(element) {
+            if(element.nationality === 'Canadian') {
+                bucket.push(element)
+            }
+        });
+        return bucket;
+    }
+    console.log(filterForCanadian(wrestlers));
 
 
 

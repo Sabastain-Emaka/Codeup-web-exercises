@@ -1,10 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Veridian Dynamics Registration</title>
+
+
 </head>
 <body>
-$END$
+<!--https://request-inspector.glitch.me/-->
+<h1> Register With US</h1>
+    <hr>
+<form method="POST" action="https://request-inspector.glitch.me/">
+    <div>
+        <h3>Email and Password</h3>
+        <label for="email">Email</label>
+        <input id="email" type="text" placeholder="Enter Email Here">
+        <ul>
+            <li>Email Cannot contain our name</li>
+        </ul>
+        <br>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Enter Password Here">
+        <label for="passwordk">Confirm Your Password</label>
+        <input id="passwordk" name="passwordk" type="password" placeholder="Confirm Your Password">
+
+        <ul>
+            <li>Password cannot be the same as username</li>
+            <li>Password Must Be At least Eight Characters</li>
+            <li>Password Must Include contain at least one uppercase and lowercase letter</li>
+            <li>Password Must contain at least a special symbol (!,@,#,$,%)</li>
+        </ul>
+    </div>
+    <hr>
+    <div>
+        <h3>Bio</h3>
+        <label for="bio">Tell us about yourself</label>
+        <br>
+        <textarea id="bio" name="bio" type="text" rows="21" cols="71"></textarea>
+        <br>
+    </div>
+    <hr>
+    <h3>Some Questions for you</h3>
+    <div>
+        <h4>How Did You Hear About Us</h4>
+        <label><input type="radio" id="AdsA" name="Ads" value="Job Board">Job Board</label>
+        <label><input type="radio" id="AdsB" name="Ads" value="Social Media">Social Media</label>
+        <label><input type="radio" id="AdsC" name="Ads" value="Friend or Veridian Staff">Friend or Veridian Staff</label>
+        <label><input type="radio" id="AdsD" name="Ads" value="Our Website">Our Website</label>
+    </div>
+    <!--<div>-->
+        <!--<h4>How Did You Hear About Us</h4>-->
+        <!--<label><input type="Checkbox" id="Ads" name="AdsB" value="Job Board">Job Board</label>-->
+        <!--<label><input type="Checkbox" id="Ads" name="AdsB" value="Social Media">Social Media</label-->
+    <!--<label><input type="Checkbox" id="Ads" name="AdsB" value="Friend or Veridian Staff">Friend or Veridian Staff</label>-->
+        <!--<label><input type="Checkbox" id="Ads" name="AdsB" value="Our Website">Our Website</label>-->
+    <!--</div>-->
+
+    <div>
+        <h4>Which web browser are you using?</h4>
+        <label for="browser">Please choose from the dropdown</label>
+        <select id="browser" name="browser">
+            <option value="firefox">Firefox</option>
+            <option value="google chrome">Google Chrome</option>
+            <option value="edge">Edge</option>
+            <option value="safari">Safari</option>
+            <option value="Others">Others</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <label for="news"><input type="checkbox" name="news" value="send news" checked>signup for our newsletter</label>
+    </div>
+    <div>
+        <button type="submit">Submit Registration Form</button>
+    </div>
+</form>
 </body>
 </html>
