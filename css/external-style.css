@@ -1,9 +1,15 @@
-body {
+/* body {
     background-color: hotpink;
 }
 h2 {
     color: magenta;
     background-color: yellowgreen;
 }
-
+*/
 /*this is a comment*/
+
+
+ .fancy-header{
+     color:blue;
+     text-decoration: underline;
+ }
