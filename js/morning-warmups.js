@@ -115,9 +115,12 @@ var charmeleon = {
     console.log(filterForCanadian(wrestlers));
 
 
-
-
-
+var circle = {
+    radius:36
+}
+//
+var area=Math.random(Math.PI*(Math.pow(circle.radius, y:2)));
+console.log(area)
 
 
 })();

@@ -76,6 +76,42 @@ a:active {
     color: royalblue;
 }
 
+.description {
+    text-decoration: underline wavy blue;
+    text-align: left;
+    text-indent: 14px;
+}
+
+.Charmeleon-name {
+    font-family: "Comic Sans MS", sans-serif;
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 3em;
+}
+
+body {
+    background-color: yellowgreen;
+    background-image: url("../images/pokeball.png");
+    background-size: auto;
+    background-repeat: repeat-y;
+    background-position-x: center ;
+}
+
+.type-list{
+    list-style: inside;
+
+}
+#back-to-top .type-list{
+    color: inherit;
+}
+
+p {
+    color: olive;
+}
+
+
+
+
 
 
 

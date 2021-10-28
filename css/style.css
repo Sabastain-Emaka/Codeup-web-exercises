@@ -1,0 +1,120 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap");
+
+h1 {
+    text-align: center;
+}
+body {
+    font-family: "Raanana", sans-serif;
+    background-image: url("../images/pokeball.png");
+    background-color: aqua;
+    background-size: 40% ;
+    background-repeat: repeat, round ;
+
+}
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+h1,h2 {
+    color:palevioletred;
+    text-decoration: underline;
+
+}
+
+ul, ol{
+    list-style: square;
+    margin-right: auto;
+    margin-left: auto;
+    list-style-position: inside;
+    list-style: -moz-linear-gradient(rosybrown,azure);
+}
+.bottom-border {
+    border-bottom:  bisque 2px double;
+
+}
+
+ table.imageTable {
+     background-color: black;
+ }
+
+ table.textTable {
+     width: 55%;
+     table-layout: auto;
+     margin: auto;
+     background-color: aqua;
+ }
+table.textTable tr,table.textTable th,table.textTable td {
+    text-align: center;
+    border: black 1px solid;
+    background-color: silver;
+}
+table.textTable th {
+    font-size: 130%;
+}
+table.textTable td {
+    font-size: 105%;
+}
+table.textTable tr {
+    padding: 10%
+}
+a:link {
+    color:red;
+}
+a:active {
+    color:black;
+}
+a:visited {
+    color: royalblue;
+}
+a:hover{
+    color:purple;
+}
+.redText{
+    color: firebrick;
+    font-size: 1.5em;
+}
+#topbutton {
+    right: 8px;
+    bottom: 8px;
+    position: fixed;
+}
+.infoList{
+    width: 25%;
+}
+strong{
+    font-weight: 300 ;
+}
+* {
+    /*means every single element  root also tags the entire html.*/
+}
+.Test-Class {
+    color: purple;
+    text-decoration: underline;
+}
+#TestID {
+    font-family: Chalkboard, Helvetica,sans-serif ;
+}
+Testelements {
+    /
+}
+
+a:visited {
+}
+
+TestParent>TestChild{
+
+}
+
+#TestBox{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: red;
+    width: 20em;
+    /*height:5em;*/
+    padding: 2em;
+    border: 3em dotted #124145;
+
+}
