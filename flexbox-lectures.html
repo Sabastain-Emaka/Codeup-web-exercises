@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox Basics Examples</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Helvetica;
+            font-weight: bold;
+        }
+        .flex-container {
+            width: 80%;
+            height: 40vh;
+            border: 3px solid goldenrod;
+            margin: 10vh auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+           /* flex-wrap: wrap;
+            align-content: stretch; */
+        }
+        .flex-item {
+            background: #BFD45D;
+            border: 2px solid darkmagenta;
+            padding: 1em;
+            flex-grow: 1;
+        }
+
+       /* .flex-item:nth-of-type(3), .flex-item:nth-of-type(15){
+            padding: 2em;
+        } */
+        .flex-item:nth-of-type(2){
+            flex-grow: 1;
+        }
+
+      #the-weird-one{
+            padding: 2em;
+            background: lightslategray;
+          flex-grow: 1;
+            align-self: flex-end;
+            /* margin:0 0 0 auto; */
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="flex-container">
+    <div class="flex-item">Item 1</div>
+    <div class="flex-item">Item 2</div>
+    <div class="flex-item">Item 3</div>
+
+    <div class="flex-item" id="the-weird-one">The Weird One</div>
+
+
+</div>
+
+</body>
+</html>>
