@@ -119,9 +119,10 @@ var circle = {
     radius:36
 }
 //
-var area=Math.random(Math.PI*(Math.pow(circle.radius, y:2)));
-console.log(area)
+    var area = Math.round(Math.PI * (Math.pow(circle.radius, 2)));
+    console.log(area);
 
+    //
     var groceries = [
         {
             name: "carrots",
@@ -143,20 +144,21 @@ console.log(area)
             quantity: 8
         }
     ];
-function getHighestQtyObject(arr) {
-    var obj = {
-        name : "Somethg",
-        qty:0
-
-    }
-    arr.forEach(function (obj) {
-        if(el.qty > obj.qty) {
-            obj=el;
+    function getHighestQuantityObject(arr) {
+        var obj = {
+            name: "something",
+            quantity: 0
         }
-    });
-    return obj;
-}
-console.log(getHighestQtyObject(groceries));
+        arr.forEach(function(el) {
+            if(el.quantity > obj.quantity) {
+                obj = el;
+            }
+            console.log(obj);
+        });
+        return obj;
+    }
+
+    console.log(getHighestQuantityObject(groceries));
 
 
 })();
