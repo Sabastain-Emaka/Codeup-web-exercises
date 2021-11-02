@@ -122,6 +122,42 @@ var circle = {
 var area=Math.random(Math.PI*(Math.pow(circle.radius, y:2)));
 console.log(area)
 
+    var groceries = [
+        {
+            name: "carrots",
+            quantity: 5
+        },{
+            name: "yams",
+            quantity: 50
+        },{
+            name: "oranges",
+            quantity: 9
+        },{
+            name: "onions",
+            quantity: 2
+        },{
+            name: "cucumbers",
+            quantity: 6
+        },{
+            name: "potatoes",
+            quantity: 8
+        }
+    ];
+function getHighestQtyObject(arr) {
+    var obj = {
+        name : "Somethg",
+        qty:0
+
+    }
+    arr.forEach(function (obj) {
+        if(el.qty > obj.qty) {
+            obj=el;
+        }
+    });
+    return obj;
+}
+console.log(getHighestQtyObject(groceries));
+
 
 })();
 
