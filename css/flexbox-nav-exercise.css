@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: "Montserrat", serif;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+}
+.top-nav {
+    width: 95%;
+    margin: 0 0 auto 0;
+    display: flex;
+    flex-basis: border-box;
+    align-items: center;
+    background-color: grey;
+    position: fixed;
+    top: 2em;
+    right: 0;
+    left: 1em;
+}
+
+.logo {
+    height: calc(1em - 2px);
+}
+
+.middle {
+    margin: 0 auto;
+    font-size: 3em;
+    padding: .2em 0;
+    position: absolute;
+    top: -30%;
+    left: 0;
+    right: 0;
+    width: 80px;
+
+}
+.test {
+    margin: 0 auto;
+}
+.right {
+    align-content: flex-end;
+}
+nav li {
+    color: black;
+    background-color: grey;
+    text-decoration: unset;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+a{
+    display: inline-block;
+    text-decoration: unset;
+    color: black;
+    padding: 1em 1em;
+}
+li a:hover {
+    color: blue;
+}
+
+p {
+    margin-top: 150em;
+}
