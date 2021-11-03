@@ -160,6 +160,48 @@ var circle = {
 
     console.log(getHighestQuantityObject(groceries));
 
+    // Write a function named ‘sortByName’ that takes in an array of objects,
+    // and returns an array of objects in alphabetical order based on the name property.
+
+    var products = [
+        {
+            name: 'Playstation 5',
+            price: 599.99
+        }, {
+            name: 'Logitech Wireless Mouse',
+            price: 23.99
+        }, {
+            name: 'Macbook Pro',
+            price: 1099.99
+        }, {
+            name: 'GoPro HERO10',
+            price: 399.99
+        }, {
+            name: '12" & 6" Metal Ruler Set',
+            price: 5.99
+        }]
+
+    function sortByName(arr) {
+        return arr.sort(function (a,b) {
+            var alower=a.name.toLowerCase();
+            var blower=b.name.toLowerCase();
+
+            if(alower<blower) {
+                return -1;
+            } else if (alower > blower) {
+            return 1
+            } else {
+                return 0
+            }
+
+        });
+
+    }
+    console.log(sortByName(products))
+
+
+
+
 
 })();
 
