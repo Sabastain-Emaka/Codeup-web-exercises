@@ -3,3 +3,8 @@
     height: 20px;
 }
 
+.btn-primary, .btn-primary:focus,  .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary{
+    color: snow;
+    background-color: dimgray;
+    border-color:black;
+}
