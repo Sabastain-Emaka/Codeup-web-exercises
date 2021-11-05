@@ -14,3 +14,8 @@
     background-repeat: no-repeat;
     background-size: 100%;
 }
+
+h1 {
+    text-align: center;
+    background-color: rgba(225, 255, 255, 0.5) ;
+}
