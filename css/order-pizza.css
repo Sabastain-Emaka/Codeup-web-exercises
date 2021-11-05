@@ -8,3 +8,9 @@
     background-color: dimgray;
     border-color:black;
 }
+
+.jumbotron {
+    background-image: url('../images/pizza.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
