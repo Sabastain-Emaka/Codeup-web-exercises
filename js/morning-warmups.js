@@ -228,13 +228,16 @@ function lowestProperty(arr) {
     var holdThis = {height: Number.MAX_VALUE};
     arr.forEach(function (el) {
         if(el.height < holdThis.height) {
-            holdThis
+            holdThis = el
         }
-    })
+    });
+    return holdThis;
 }
 
 
 console.log(lowestProperty(bBallPlayers))
+
+
 })();
 
 
