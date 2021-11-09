@@ -198,6 +198,7 @@ var circle = {
 
     }
     console.log(sortByName(products))
+
 // Write a function in JavaScript that takes in an array of objects
 // and returns the object with the lowest height property.
 // Consider the following array to test your code.
@@ -223,9 +224,17 @@ var circle = {
             height: 198
         }
     ];
+function lowestProperty(arr) {
+    var holdThis = {height: Number.MAX_VALUE};
+    arr.forEach(function (el) {
+        if(el.height < holdThis.height) {
+            holdThis
+        }
+    })
+}
 
 
-
+console.log(lowestProperty(bBallPlayers))
 })();
 
 
