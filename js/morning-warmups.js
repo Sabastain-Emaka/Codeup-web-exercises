@@ -238,6 +238,46 @@ function lowestProperty(arr) {
 console.log(lowestProperty(bBallPlayers))
 
 
+    var myCharacter = {
+        name: 'Jevian',
+        hitPoints: 100,
+        class: 'Warrior',
+        abilities: {
+            attack: function(obj) {
+                console.log(myCharacter.name + " hit " + obj.name + " for " + myCharacter.weapon.damage + " damage! ")
+                obj.hitPoints -= myCharacter.weapon.damage;
+                console.log(obj.name + " has " + obj.hitPoints + " hit Points left! ")
+
+            },
+        },
+        magicPoints: 0,
+        weapon: {
+            name: 'Silver Sabre',
+            damage: 16,
+            type: 'sword'
+        }
+    }
+
+    var enemy = {
+        name: 'Savage Orc',
+        hitPoints: 100,
+        class: 'Warrior',
+        magicPoints: 0,
+    }
+    myCharacter.abilities.attack(enemy);
+    myCharacter.abilities.attack(enemy);
+    myCharacter.abilities.attack(enemy);
+    myCharacter.abilities.attack(enemy);
+
+    //write a function in JavaScript that takes in an array, and returns a random element from the array.
+
+    function randomEl(arr){
+        return arr[Math.floor(Math.random()*arr.length)];
+
+        console.log(randomEl(arr["yam", "pepper","bitterleaf"]));
+
+    }
+
 })();
 
 
