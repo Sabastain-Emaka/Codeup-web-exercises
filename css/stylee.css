@@ -8,14 +8,18 @@ td, th {
     padding: 5px 10px;
 }
 
-/*.btn:hover {*/
-/*    background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);*/
-/*    background-color:#ffab23;*/
-/*}*/
-/*.btn:active {*/
-/*    position:relative;*/
-/*    top:1px;*/
-/*}*/
+
+
+
+
+.btn:hover {
+    background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+    background-color:#ffab23;
+}
+.btn:active {
+    position:relative;
+    top:1px;
+}
 
 /*card {*/
 /*    display: flex;*/
@@ -134,3 +138,6 @@ td, th {
 /*    padding-left: 125px;*/
 /*    padding-right: 125px;*/
 /*}*/
+
+
+

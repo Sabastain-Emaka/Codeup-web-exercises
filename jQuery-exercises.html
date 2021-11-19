@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery exercises</title>
+  <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+  <style>
+    /*p {*/
+    /*    color: red;*/
+    /*    margin: 5px;*/
+    /*    cursor: pointer;*/
+    /*}*/
+    /*p:hover {*/
+    /*    background: yellow;*/
+    /*}*/
+  </style>
+
+</head>
+<body>
+
+
+<h1 id="new">jQuery Exercise</h1>
+<ul>
+  <li class="blue">Great career</li>
+  <li class="even green">car</li>
+  <li class="blue">hat</li>
+  <li class="even green">money</li>
+  <li class="blue">fun</li>
+  <li class="even green">TV</li>
+</ul>
+
+<button  id="button">Click Me!</button>
+
+
+
+
+<p class ='first'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet autem distinctio eos, </p>
+<p class ='second'>explicabo illum magni praesentium ut voluptatibus! Adipisci architecto dolor dolore </p>
+<p class = 'third codeup'>ex expedita impedit in magni nostrum rerum voluptas.</p>
+
+<div id="target">
+  Click here
+</div>
+
+<div id="other">
+  Trigger the handler
+</div>
+
+<script>
+  (function (){
+    "use strict";
+    $("#button").click(function () {
+      alert("you clicked the button")
+    });
+    $('#new').css('color', 'red');
+    $('.even').css('font-size', '2em');
+    $('.odd').css('font-size', '1.5em');
+    $('.green').css('color', 'green');
+    $('.codeup').css('border', '1px solid red');
+
+    $( "#target" ).click(function() {
+      alert( "you clicked here" );
+    });
+    $( "p" ).click(function() {
+      $(this).slideUp();
+    });
+    $("li").css('font-size', '20px');
+    $('h1,p,li').css('background-color', '#FF0');
+
+    //     $('#new').click(
+    //         function() {
+    //             $(this).css('background-color', 'red');
+    //         });
+    //
+    //     $('p').dblclick(
+    //         function(){
+    //             $(this).css('font-size', "18px");
+    //         });
+    // $('li').hover(
+    //     function() {
+    //         $(this).css('color', 'red');
+    //     },
+    //     function() {
+    //         $(this).css('color', 'black');
+    //     }
+    // );
+
+  })();
+</script>
+
+<!--// alert("Look, we're using jQuery");-->
+<!--// document.getElementById("button").addEventListener("click", function () {-->
+<!--//     alert("you clicked the button")-->
+<!--// });-->
+<!--//   $(#button.click(function () {-->
+<!--//     alert("you clicked the button")-->
+<!--//   });-->
+
+
+
+
+
+
+</body>
+</html>
