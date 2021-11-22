@@ -56,6 +56,25 @@
 
   //the given konami code sequence
   var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a' ];
+
+  //variable for position
+  var konamiCodePosition = 0;
+
+  $(document).keydown(function (e){
+    var key = allowedKeys[e.keyCode];
+    var requiredKey = konamiCode[konamiCodePosition];
+    if(key === requiredKey) {
+      konamiCodePosition++;
+      if (konamiCodePosition === konamiCode.length) {
+              $("body").css("backgound-image", "url(images/konami.png)");
+              konamiCodePosition = 0;
+      }
+    } else {
+      konamiCodePosition = 0;
+      $("body").css("background-image")
+    }
+  })
+
 </script>
 </body>
 </html>
