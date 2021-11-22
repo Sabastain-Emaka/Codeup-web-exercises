@@ -44,13 +44,56 @@
   <span id="tenth">A</span>
 </p>
 
-<script src="/js/jquery.js"></script>
+<!--<script src="/js/jquery.js"></script>-->
+
+
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+  /**
+   * @author Alexander Manzyuk <admsev@gmail.com>
+   * Copyright (c) 2012 Alexander Manzyuk - released under MIT License
+   * https://github.com/admsev/jquery-play-sound
+   * Usage: $.playSound('http://example.org/sound')
+   * $.playSound('http://example.org/sound.wav')
+   * $.playSound('/attachments/sounds/1234.wav')
+   * $.playSound('/attachments/sounds/1234.mp3')
+   * $.stopSound();
+   **/
+
+  (function ($) {
+    $.extend({
+      playSound: function () {
+        return $(
+                '<audio class="sound-player" autoplay="autoplay" style="display:none;">'
+                + '<source src="' + arguments[0] + '" />'
+                + '<embed src="' + arguments[0] + '" hidden="false" autostart="true" loop="false"/>'
+                + '</audio>'
+        ).appendTo('body');
+      },
+      stopSound: function () {
+        $(".sound-player").remove();
+      }
+    });
+  })(jQuery);
+
+
+
+
+</script>
+
 <script>
   "use strict";
 
   $(document).keyup(function(event){
     console.log(event.keyCode);
   });
+
+  // $( "#showr" ).click(function() {
+  //     $( "span" ).first().show( "fast", function showNext() {
+  //         $( this ).next( "span" ).show( "fast", showNext );
+  //     });
+  // });
 
   var allowedKeys = {37:'left', 38: 'up', 39: 'right', 40: 'down', 65: 'a', 66: 'b' };
 
@@ -73,11 +116,26 @@
       konamiCodePosition = 0;
       $("body").css("background-image", "url(images/crusade.png");
       $("body").css("background-size", "80%")
-    }
+      $.playSound("music/KenHSound.mp3");
+      $.playSound("music/background-beat.mp3");
+    };
   });
 
+jQuery-Keyboard-Events
+</script>
 
+<script>
+function activateCheats() {
+document.body.style.backgroundImage = "url('images/Konami.png')";
+
+var audio = new Audio('music/music_KenHSound.mp3');
+audio.play();
+
+alert("You gained 30 lives");
+}
 
 </script>
+
+
 </body>
 </html>
