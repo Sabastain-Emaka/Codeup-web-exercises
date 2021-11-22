@@ -39,7 +39,7 @@
   <span id="fifth">&larr;</span>
   <span id="sixth">&rarr;</span>
   <span id="seventh">&larr;</span>
-  <span id="eigth">&rarr;</span>
+  <span id="eighth">&rarr;</span>
   <span id="ninth">B</span>
   <span id="tenth">A</span>
 </p>
@@ -51,6 +51,11 @@
   $(document).keyup(function(event){
     console.log(event.keyCode);
   });
+
+  var allowedKeys = {37:'left', 38: 'up', 39: 'right', 40: 'down', 65: 'a', 66: 'b' };
+
+  //the given konami code sequence
+  var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a' ];
 </script>
 </body>
 </html>
