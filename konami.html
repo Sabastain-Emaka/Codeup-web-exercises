@@ -46,6 +46,26 @@
 
 <!--<script src="/js/jquery.js"></script>-->
 
+
+<script>
+
+  (function ($) {
+    $.extend({
+      playSound: function () {
+        return $(
+                '<audio class="sound-player" autoplay="autoplay" style="display:none;">'
+                + '<source src="' + arguments[0] + '" />'
+                + '<embed src="' + arguments[0] + '" hidden="false" autostart="true" loop="false"/>'
+                + '</audio>'
+        ).appendTo('body');
+      },
+      stopSound: function () {
+        $(".sound-player").remove();
+      }
+    });
+  })(jQuery);
+</script>
+
 <script>
   "use strict";
 
@@ -80,25 +100,19 @@
       konamiCodePosition = 0;
       $("body").css("background-image", "url(images/crusade.png");
       $("body").css("background-size", "80%")
-      $.playSound("music/KenHSound.mp3");
-      $.playSound("music/background-beat.mp3");
-    };
-  });
+      $.playSound("music/DCLM-CAMPUS-CHOIR.mp3");
+      // $.playSound("music/background-beat.mp3");
+      $(".options").click(function(){
+        // $.playSound("music/DCLM-CAMPUS-CHOIR.mp3");
+      }).hover(function(){
+        // $.playSound("music/DCLM-CAMPUS-CHOIR.mp3");
 
-jQuery-Keyboard-Events
+      });
+  }});
+
+// jQuery-Keyboard-Events
 </script>
 
-<script>
-function activateCheats() {
-document.body.style.backgroundImage = "url('images/crusade.png')";
-
-var audio = new Audio('audio/pling.mp3');
-audio.play();
-
-alert("You gained 30 lives");
-}
-
-</script>
 
 
 </body>
