@@ -102,13 +102,114 @@
     <li>Entrance fee is xaf2000</li>
 </ul>
 
+<button type="button" id="li-last">Highlight last</button>
+<div class="big-box">
+    <div class="box" ><div id="left"></div></div>
+    <div class="box" ><div id="center"></div></div>
+    <div class="box" ><div id="right"></div></div>
+</div>
+<div class="big-box">
+    <button type="button" id="left-btn">swap</button>
+    <button type="button" id="center-btn">swap</button>
+    <button type="button" id="right-btn">swap</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    $("dd").addClass("invisible")
+    $("#invis-btn").click(function (event) {
+        // event.preventDefault(); //Is this needed?
+        $("dd").toggleClass("invisible");
+    });
+    //Below makes it so each individual dt makes it's own dd show.
+    $("dt").click(function () {
+        $(this).next().toggleClass("invisible");
+    });
+    $("dt").addClass("highlight").toggleClass("highlight");
+
+
+    $("dt").click(function () {
+        $(this).toggleClass("highlight");
+        // $(".highlight").css("background-color","gold");
+    });
+
+    // $("ul").children("li").each(function(){
+    //   $(this).last().addClass("highlight");
+    // });
+
+    $("ul").each(function () {
+        $(this).children("li").last().addClass("highlight").toggleClass("highlight");
+    });
+
+    $("#li-last").click(function () {
+        $("ul").each(function () {
+            $(this).children("li").last().toggleClass("highlight");
+        });
+    });
+
+    $("h3").click(function () {
+        $(this).next("ul").children("li").css("font-weight", "bold");
+    });
+
+    $("li").click(function () {
+        $(this).parent("ul").children("li").first().css("color","blue");
+    });
+
+    $("#left-btn").click(function(){
+        var leftBox = $(".box").first();
+        var leftBoxHTML = $(".box").first().html();
+        // console.log(leftBox.html());
+
+        var swapBox = $(".box").first().next();
+        var swapBoxHTML = $(".box").first().next().html();
+
+        $(".box").first().next().html(leftBoxHTML);
+        $(".box").first().html(swapBoxHTML);
+
+    });
+
+    $("#center-btn").click(function(){
+        var centerBox = $(".box").first().next();
+        var centerBoxHTML = $(".box").first().next().html();
+        // console.log(centerBox.html());
+
+        var leftBoxHTML = $(".box").first().html();
+        var rightBoxHTML = $(".box").last().html();
+
+        function getRandomNumber(min,max){
+            return Math.floor(Math.random() * max) + min;
+        }
+        var randomNum = getRandomNumber(1,2);
+        if (randomNum === 1) {
+            $(".box").first().next().html(leftBoxHTML);
+            $(".box").first().html(centerBoxHTML);
+        } else {
+            $(".box").first().next().html(rightBoxHTML);
+            $(".box").last().html(centerBoxHTML);
+        }
+        // Below makes the button move everything from left to right.
+        // $(".box").first().html(rightBoxHTML);
+        // $(".box").first().next().html(leftBoxHTML);
+        // $(".box").last().html(centerBoxHTML);
+
+    });
+
+    $("#right-btn").click(function(){
+        var rightBox = $(".box").last();
+        var rightBoxHTML = $(".box").last().html();
+        // console.log(rightBox.html());
+
+        var swapBox = $(".box").first().next();
+        var swapBoxHTML = $(".box").first().next().html();
+
+        $(".box").first().next().html(rightBoxHTML);
+        $(".box").last().html(swapBoxHTML);
+
+    });
 
 
 
-
-
-
-
-
+</script>
 </body>
 </html>
