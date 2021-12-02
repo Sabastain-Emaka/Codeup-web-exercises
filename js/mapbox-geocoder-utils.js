@@ -20,14 +20,13 @@ function geocode(search, token) {
         .then(function(res) {
             return res.json();
             // to get all the data from the request, comment out the following three lines...
-        // }).then(function(data) {
-        //     return data.features[0].center;
+        }).then(function(data) {
+            return data.features[0].center;
         });
 }
 
-geocode("San Antonio", MAPBOX_KEY).then(function (){
-    console.log(results)
-})
+
+
 /***
  * reverseGeocode is a method to search for a physical address based on inputted coordinates
  * @param {object} coordinates is an object with properties "lat" and "lng" for latitude and longitude

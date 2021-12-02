@@ -5,90 +5,50 @@
     <title>Mapbox maps</title>
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
-            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-            crossorigin="anonymous"></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
 
 </head>
 <body>
-
-<div id='map' style='width: 400px; height: 300px; margin:20px auto'></div>
-<div class="d-flex justify-content-around">
-    <button class="btn btn-dark" type="button" id="zoom 5">Zoom 5</button>
-    <button class="btn btn-dark" type="button" id="zoom 15">Zoom 5</button>
-    <button class="btn btn-dark" type="button" id="zoom 20">Zoom 5</button>
-    <button class="btn btn-dark" type="button" id="markers">Hide all markers</button>
-</div>
-
+<div id='map' style='width: 400px; height: 300px;'></div>
 <script src="js/keys.js"></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
 
-
-
 <script>
-
-    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN
-    var map = new mapboxgl.Map({
+    mapboxgl.accessToken = MAPBOX_KEY;
+    const map = new mapboxgl.Map({
         container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/dark-v10', // style URL
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
         center: [11.4548848, 3.8373626], // starting position [lng, lat]
         zoom: 9 // starting zoom
     });
-    // $("#zoom5").click(function () {
-    //     map.setZoom(5)
-    // });
-    // $("#zoom15").click(function () {
-    //     map.setZoom(10)
-    // });
-    // $("#zoom20").click(function () {
-    //     map.setZoom(20)
-    // });
+    //Markers
+    //Instantiate a new marker
+    // var codeup = new mapboxgl.Marker({
+    //     color: 'blue'
+    // })
+    //     .setLngLat([-98.48615, 29.426827]).setDraggable(true)
     //
-    //
-    // $("#inputMapZoom").change(function () {
-    //     var selected = $(this).val();
-    //     // console.log(selected)
-    //     map.setZoom(selected)
-    // });
-    //
-    // $("#markers").click(function () {
-    //     // resLocMarkers.remove();
-    //     removeMarkerArray.forEach(function(markerx,index){
-    //         markerx.remove();
-    //     });
-    // });
+    // codeup.addTo(map)
+    //must use the ".on" method to recognise mapbox events.
+    //below we are listening for a 'dragend' event.
+    // codeup.on('dragend', function (){
+    //     popup.setLngLat(codeup.getLngLat())
+        // console.log('Hello!, Stop moving the marker')
+        //console.log(codeup.getLngLat()) to coordinates of a point when you drag on the map
+    // })
+
+    // codeup.remove(). This is to remove a marker
+
+    // POPUPS
+
+    // var popup = new mapboxgl.Popup()
+    //     .setLngLat(codeup.getLngLat())
+    //     .setHTML('<h3 style="color: green">Hello From Codeup</h3>')
+    //     .addTo(map)
 
 
-    // var resLoc = [
-    //     {
-    //         name: "Nook Gyros",
-    //         lat: -97.6709,
-    //         lng: 31.0689,
-    //         color: "green",
-    //         info: "We sell Gyros!",
-    //         picture: "<img src=\"img/gryo.jpeg\" class=\"card-img-top\" alt=\"...\">\n"
-    //     }, {
-    //         name: "Cajun Crab",
-    //         lat: -97.6542,
-    //         lng: 31.0753,
-    //         color: "red",
-    //         info: "We sell Cajun Seafood!",
-    //         picture: "<img src=\"img/crab.jpeg\" class=\"card-img-top\" alt=\"...\">\n"
-    //     }, {
-    //         name: "The Shack",
-    //         lat: -97.6384726,
-    //         lng: 31.0518745,
-    //         color: "brown",
-    //         info: "We sell Caribbean Seafood!",
-    //         picture: "<img src=\"img/the-shack.jpeg\" class=\"card-img-top\" alt=\"...\">\n"
-    //     }
-    // ];
+    // popup.setLngLat(codeup.getLngLat())
+    // popup.addTo(map)
 </script>
-
 </body>
 </html>
