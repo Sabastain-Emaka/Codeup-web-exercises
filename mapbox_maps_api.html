@@ -25,5 +25,70 @@
     <button class="btn btn-dark" type="button" id="markers">Hide all markers</button>
 </div>
 
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+
+
+<script>
+
+    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN
+    var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/dark-v10', // style URL
+        center: [11.4548848, 3.8373626], // starting position [lng, lat]
+        zoom: 9 // starting zoom
+    });
+    // $("#zoom5").click(function () {
+    //     map.setZoom(5)
+    // });
+    // $("#zoom15").click(function () {
+    //     map.setZoom(10)
+    // });
+    // $("#zoom20").click(function () {
+    //     map.setZoom(20)
+    // });
+    //
+    //
+    // $("#inputMapZoom").change(function () {
+    //     var selected = $(this).val();
+    //     // console.log(selected)
+    //     map.setZoom(selected)
+    // });
+    //
+    // $("#markers").click(function () {
+    //     // resLocMarkers.remove();
+    //     removeMarkerArray.forEach(function(markerx,index){
+    //         markerx.remove();
+    //     });
+    // });
+
+
+    // var resLoc = [
+    //     {
+    //         name: "Nook Gyros",
+    //         lat: -97.6709,
+    //         lng: 31.0689,
+    //         color: "green",
+    //         info: "We sell Gyros!",
+    //         picture: "<img src=\"img/gryo.jpeg\" class=\"card-img-top\" alt=\"...\">\n"
+    //     }, {
+    //         name: "Cajun Crab",
+    //         lat: -97.6542,
+    //         lng: 31.0753,
+    //         color: "red",
+    //         info: "We sell Cajun Seafood!",
+    //         picture: "<img src=\"img/crab.jpeg\" class=\"card-img-top\" alt=\"...\">\n"
+    //     }, {
+    //         name: "The Shack",
+    //         lat: -97.6384726,
+    //         lng: 31.0518745,
+    //         color: "brown",
+    //         info: "We sell Caribbean Seafood!",
+    //         picture: "<img src=\"img/the-shack.jpeg\" class=\"card-img-top\" alt=\"...\">\n"
+    //     }
+    // ];
+</script>
+
 </body>
 </html>
