@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox Lecture</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+<h1>Welcome to Mapbox</h1>
+
+<div id='map' style='width: 400px; height: 300px;'></div>
+
+
+<script src="js/keys.js"></script>
+    <script>
+        mapboxgl.accessToken = MAPBOX_KEY;
+        const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-98.4683, 29.5312], // starting position [lng, lat]
+        zoom: 9 // starting zoom
+    });
+ //Markers
+        //Instantiate a new marker
+        var codeup = new mapboxgl.Marker({
+            color: 'blue'
+        })
+            .setLngLat([-98.48615, 29.426827]).setDraggable(true)
+
+        codeup.addTo(map)
+        //must use the ".on" method to recognise mapbox events.
+        //below we are listening for a 'dragend' event.
+        codeup.on('dragend', function (){
+        popup.setLngLat(codeup.getLngLat())
+            // console.log('Hello!, Stop moving the marker')
+            //console.log(codeup.getLngLat()) to coordinates of a point when you drag on the map
+        })
+
+        // codeup.remove(). This is to remove a marker
+
+        // POPUPS
+
+        var popup = new mapboxgl.Popup()
+        .setLngLat(codeup.getLngLat())
+        .setHTML('<h3 style="color: green">Hello From Codeup</h3>')
+        .addTo(map)
+
+
+        // popup.setLngLat(codeup.getLngLat())
+        // popup.addTo(map)
+</script>
+</body>
+</html>
