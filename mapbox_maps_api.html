@@ -21,34 +21,42 @@
         center: [11.4548848, 3.8373626], // starting position [lng, lat]
         zoom: 9 // starting zoom
     });
-    //Markers
-    //Instantiate a new marker
-    // var codeup = new mapboxgl.Marker({
-    //     color: 'blue'
-    // })
-    //     .setLngLat([-98.48615, 29.426827]).setDraggable(true)
-    //
-    // codeup.addTo(map)
-    //must use the ".on" method to recognise mapbox events.
-    //below we are listening for a 'dragend' event.
-    // codeup.on('dragend', function (){
-    //     popup.setLngLat(codeup.getLngLat())
-        // console.log('Hello!, Stop moving the marker')
-        //console.log(codeup.getLngLat()) to coordinates of a point when you drag on the map
-    // })
+    var marker = new mapboxgl.Marker()
+        .setLngLat([11.4548848, 3.8373626])
+        .addTo(map);
 
-    // codeup.remove(). This is to remove a marker
+    map.on('click', function () {
 
-    // POPUPS
+        var YdePopup = new mapboxgl.Popup()
+            .setHTML('<p>Yde Vie</p>')
+            .addTo(map);
 
-    // var popup = new mapboxgl.Popup()
-    //     .setLngLat(codeup.getLngLat())
-    //     .setHTML('<h3 style="color: green">Hello From Codeup</h3>')
-    //     .addTo(map)
-
-
-    // popup.setLngLat(codeup.getLngLat())
-    // popup.addTo(map)
+        marker.setPopup(YdePopup);
+    });
+    var restaurants = [
+        {
+            name: "Hôtel Des Députés",
+            lat: 11.5024626,
+            lng: 3.8803054,
+            color: "green",
+            info: "Reserve for Members of Parliament",
+            picture: "<img src=\"images/hotel-depute.png\" class=\"card-img-top\" alt=\"...\">\n"
+        }, {
+            name: "Hôtel Mont Fébé",
+            lat: 11.5024626,
+            lng: 3.8803054,
+            color: "red",
+            info: "Original African Food",
+            picture: "<img src=\"images/mont-febe.png\" class=\"card-img-top\" alt=\"...\">\n"
+        }, {
+            name: "Hotel Mérina Yaoundé",
+            lat: 11.4845657,
+            lng: 3.8480325,
+            color: "brown",
+            info: "We sell Afircan  Seafood!",
+            picture: "<img src=\"images/hotel-marina.png\" class=\"card-img-top\" alt=\"...\">\n"
+        }
+    ];
 </script>
 </body>
 </html>
