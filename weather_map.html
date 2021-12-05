@@ -69,13 +69,13 @@
     <div id="weather-forecast" class = "container forecast-format"></div>
     <div id="map-canvas" class="forecast-style"></div>
 </div>
-
+<script src="js/keys.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkvGYIbyWtGTc6LkTph0UVJVUj7Uo6tAA"></script>
 
 <script>
-    $.ajax({
+    $.get ({
         url: "http://api.openweathermap.org/data/2.5/forecast",
         type: "GET",
         data: {
@@ -119,12 +119,12 @@
         var mapOptions = {
             zoom: 11,
             center: {
-                lat: 29.426780, lng: -98.489575
+                lat: 10.1464437, lon: 5.9641314
             }
         };
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
         var geocoder = new google.maps.Geocoder();
-        var address = "600 Navarro St #350, San Antonio, TX 78205";
+        var address = "North West Region, Cameroon, Bamenda";
         geocoder.geocode({"address": address}, function (results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
                 map.setCenter(results[0].geometry.location);
@@ -136,13 +136,13 @@
 
 
 
-        var codeup = { lat: 29.426780, lng: -98.489575 };
+        var bamenda = { lat: 10.1464437, lon: 5.9641314 };
         var markers = [];
         map.addListener('click', function(event) {
             addMarker(event.latLng);
         });
         var hotDogMarker = new google.maps.Marker({
-            position: codeup,
+            position: bamenda,
             map: map,
             animation: google.maps.Animation.DROP,
             icon: {
@@ -154,7 +154,7 @@
         });
 
         var infowindow = new google.maps.InfoWindow({
-            content:    "<h2><a href='https://www.fattboyburgers.com'>Fattboy Burgers and Dogs</a></h2><img src='images/burger.jpeg' style='width: 300px' height='auto' ><br><h3>Bustling spot for classic American grub.</h3><p>This local gem is a must-try for huge portions of juicy goodness at a reasonable price! The topping options are both classic and exotic, and there is no limitation on the amount of toppings you may add to your entree.</p>A steal-of-a-deal meal."
+            content:    "<h2><a href='https://www.fattboyburgers.com'>The Land of the Great</a></h2><img src='images/burger.jpeg' style='width: 300px' height='auto' ><br><h3>Bustling spot for classic American grub.</h3><p>This local gem is a must-try for huge portions of juicy goodness at a reasonable price! The topping options are both classic and exotic, and there is no limitation on the amount of toppings you may add to your entree.</p>A steal-of-a-deal meal."
         });
 
 // Open the window using our map and marker
