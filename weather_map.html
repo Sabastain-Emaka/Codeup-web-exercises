@@ -2,173 +2,142 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bamenda Weather Map</title>
-</head>
-<body>
-<style>
-    body {
-        background-color: greenyellow;
-        font-family: Helvetica, Arial, sans-serif;
-    }
-    h1 {
-        padding: .5em;
-        margin: 1em;
-        text-align: center;
-    }
-    #map-canvas {
-        width: 770px;
-        height: 481px;
-        margin-top: 3em;
-        margin-bottom: 3em;
-        margin-left: auto;
-        margin-right: auto;
+    <title>Weather App</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-        padding: 1em;
-    }
-    .forecast-format {
-        text-align: center;
-        display: inline-block;
-        margin: auto;
-        padding-top: 0em;
-        padding-bottom: 0em;
-        padding-left: 5em;
-        padding-right: 5em;
-    }
-    .forecast-style {
-        background-color: #F2F2F2;
-        border: solid 1px gray;
-        border-collapse: collapse;
-        border-radius: 1em;
-    }
-
-</style>
-<h1>Bamenda Weather Application</h1>
-
-<div class="container" style="margin: auto; display: grid;">
-    <!--
-     <nav id="nav-search" style="display: inline; margin-left: .5em;">
-    -->
-    <!--
-    <h2 id="city-name"></h2>
-    -->
-    <!--
-    <p>Enter a set of coordinates and view it via <a href="https://www.google.com/maps/" id="google-maps-link">Google Maps</a>!</p>
-    -->
-    <!--
-    <p>Latitude: <input id="userLat" type="number"></p>
-    -->
-    <!--
-    <p>Longitude: <input id="userLon" type="number"></p>
-    -->
-    <!--
-    <button id="userSearch">Search</button>
-    -->
-    <!--
-    </nav>
-    -->
-    <div id="weather-forecast" class = "container forecast-format"></div>
-    <div id="map-canvas" class="forecast-style"></div>
-</div>
-<script src="js/keys.js"></script>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"
-        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkvGYIbyWtGTc6LkTph0UVJVUj7Uo6tAA"></script>
-
-<script>
-    $.get ({
-        url: "http://api.openweathermap.org/data/2.5/forecast",
-        type: "GET",
-        data: {
-            APPID: Default_KEY,
-            lat: 10.1464437,
-            lon: 5.9641314,
-            units: "imperial"
+    <style>
+        #five-day-forecast {
+            margin: 20px;
         }
 
-    }).done(function (data) {
-        console.log(data);
-        $('#city-name').html(data.city.name);
-        var index=[0, 8, 16];
-        index.forEach(function (element, index) {
-            var tempMax = data.list[index].main.temp_max;
-            var tempMin = data.list[index].main.temp_min;
-            var weatherIcon = data.list[index].weather[0].icon;
-            var weatherType = data.list[index].weather[0].main;
-            var weatherDetail = data.list[index].weather[0].description;
-            var humidity = data.list[index].main.humidity;
-            var windSpeed = data.list[index].wind.speed;
-            var pressure = data.list[index].main.pressure;
-            var forecast = "<div class='forecast-details forecast-format forecast-style' style='margin: .33em;'>";
-            forecast += "<h3 class='temperature' >" + tempMax + ' / ' + tempMin + "</h3>";
-            forecast += "<img src='http://openweathermap.org/img/w/" + weatherIcon + ".png'>";
-            forecast += "<p class='weather-condition'>" + "<b>" + weatherType + "</b>: " + weatherDetail + "</p>";
-            forecast += "<p class='humidity'>" + "<b>Humidity: </b>" + humidity + "</p>";
-            forecast += "<p class='wind'>" + "<b>Wind: </b>" + windSpeed + "</p>";
-            forecast += "<p class='pressure'>" + "<b>Pressure: </b>" + pressure + "</p>";
-            forecast += "</div>";
-            $('#weather-forecast').append(forecast);
-        });
-    });
+        #map {
+            margin: 0 auto;
+
+            width: 95%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+
+<nav id="top-blue-bar" class="text-white bg-primary p-1 nav justify-content-between">
+    <h2 class="nav-link">Weather App</h2>
+    <a class="nav-link align-self-center" id="current-city"></a>
+</nav>
+
+<div id="search" class="m-4">
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+            <span class="mr-2">Place</span>
+            <label for="inputCity" class="sr-only">enter-city</label>
+            <input type="text" class="form-control" id="inputCity" value="Dallas" placeholder="Enter City">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2" id="find">Find</button>
+    </form>
+</div>
+
+<div id="five-day-forecast">
+    <div class="card-deck">
 
 
-    // GOOGLE MAPS //
+    </div>
+</div>
 
-    (function() {
-        "use strict";
+<div id='map'></div>
 
-        var mapOptions = {
-            zoom: 11,
-            center: {
-                lat: 10.1464437, lon: 5.9641314
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js'></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+<script>
+    "use strict";
+    (function () {
+
+            var url = "http://api.openweathermap.org/data/2.5/forecast";
+
+            weatherData();
+
+            function weatherData() {
+                $(".card-deck").html(" ");
+                var cityInput = $("#inputCity");
+
+                $.get(url, {
+                    "APPID": Default_KEY,
+                    "q": cityInput.val(),
+                    "units": "imperial"
+                }).done(function (data) {
+                    console.log(data);
+                    $("#current-city").text("Current City: " + data.city.name);
+                    for (var i = 0; i < data.list.length; i++) {
+                        if (i === 0 || i === 8 || i === 16 || i === 24 || i === 32) {
+                            var html = " ";
+                            var date = data.list[i].dt_txt;
+                            var splitDate = date.split(" ");
+
+                            html += "<div class=\"card\">"
+                            html += "<div class=\"card-header\" id=\"day\">" + splitDate[0] + "</div>"
+                            html += "<ul class=\"list-group\">"
+                            html += "<li class=\"list-group-item\" id=\"temp\">" + "Temp: " + data.list[i].main.temp + "" + "</li>"
+                            html += "<li class=\"list-group-item\" id=\"descript\">" + "Description: " + data.list[i].weather[0].description + "</li>"
+                            html += "<li class=\"list-group-item\" id=\"humid\">" + "Humidity: " + data.list[i].main.humidity + "</li>"
+                            html += "<li class=\"list-group-item\" id=\"wind\">" + "Wind: " + data.list[i].wind.speed + "</li>"
+                            html += "<li class=\"list-group-item\" id=\"pressure\">" + "Pressure: " + data.list[i].main.humidity + "</li>"
+                            html += "</ul>"
+                            html += "</div>"
+
+
+                            $(".card-deck").append(html);
+
+                        }
+                    }
+
+
+                    var longitude = data.city.coord.lon;
+                    var latitude = data.city.coord.lat;
+
+                    mapboxgl.accessToken = mapboxToken;
+                    var map = new mapboxgl.Map({
+                        container: 'map',
+                        style: 'mapbox://styles/mapbox/outdoors-v11',
+                        center: [longitude, latitude],
+                        zoom: 10
+                    });
+
+                    var marker = new mapboxgl.Marker({
+                        draggable: true
+                    })
+                        .setLngLat([longitude, latitude])
+                        .addTo(map);
+
+
+
+                }).fail(function (errors) {
+                    console.error(errors);
+                });
             }
-        };
-        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-        var geocoder = new google.maps.Geocoder();
-        var address = "North West Region, Cameroon, Bamenda";
-        geocoder.geocode({"address": address}, function (results, status) {
-            if (status === google.maps.GeocoderStatus.OK) {
-                map.setCenter(results[0].geometry.location);
-            } else {
-                alert("Geocoding was not successful - STATUS: " + status);
-            }
-        });
+
+            $("#find").click(function (e) {
+                e.preventDefault();
+                weatherData();
+            });
+
+        }
+
+    )();
 
 
-
-
-        var bamenda = { lat: 10.1464437, lon: 5.9641314 };
-        var markers = [];
-        map.addListener('click', function(event) {
-            addMarker(event.latLng);
-        });
-        var hotDogMarker = new google.maps.Marker({
-            position: bamenda,
-            map: map,
-            animation: google.maps.Animation.DROP,
-            icon: {
-                url: "images/iconfinder_Food_C207_2427857.png",
-                scaledSize: new google.maps.Size(43, 43),
-                //origin: new google.maps.Point(0,0),
-                //anchor: new google.maps.Point(5, 0)
-            }
-        });
-
-        var infowindow = new google.maps.InfoWindow({
-            content:    "<h2><a href='https://www.fattboyburgers.com'>The Land of the Great</a></h2><img src='images/burger.jpeg' style='width: 300px' height='auto' ><br><h3>Bustling spot for classic American grub.</h3><p>This local gem is a must-try for huge portions of juicy goodness at a reasonable price! The topping options are both classic and exotic, and there is no limitation on the amount of toppings you may add to your entree.</p>A steal-of-a-deal meal."
-        });
-
-// Open the window using our map and marker
-        marker.addListener('click', function() {
-            //map.setZoom(19);
-            map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
-            map.setCenter(hotDogMarker.getPosition());
-            infowindow.open(map, hotDogMarker);
-        });
-
-        //
-
-
-    })();
 </script>
 </body>
 </html>
