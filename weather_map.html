@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather App</title>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css' rel='stylesheet'/>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <style>
+        body {
+            background-image: url("images/bda.png");
+        }
+
         #five-day-forecast {
             margin: 20px;
         }
@@ -16,16 +20,16 @@
         #map {
             margin: 0 auto;
 
-            width: 95%;
-            height: 500px;
+            width: 80%;
+            height: 400px;
         }
     </style>
 </head>
 <body>
 
 <nav id="top-blue-bar" class="text-white bg-primary p-1 nav justify-content-between">
-    <h2 class="nav-link">Weather App</h2>
-    <a class="nav-link align-self-center" id="current-city"></a>
+    <h2 class="nav-link">Bamenda Weather App</h2>
+    <a class="nav-link align-self-center" ></a>
 </nav>
 
 <div id="search" class="m-4">
