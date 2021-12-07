@@ -65,7 +65,7 @@ const getEmails = (userlist) => {
     emails.push(pull.name)
   }
 }
-getNames(users);
+getEmails(users);
 //console.log(emails);
 
 
