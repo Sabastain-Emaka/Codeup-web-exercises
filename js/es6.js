@@ -59,6 +59,10 @@ let names = [];
 //   return names.push(user.name);
 // });
 
+// another way to write foreach function
+// users.forEach(user => names.push(user.name));
+// console.log(user.name)
+
 const getEmails = (userlist) => {
   for (let pull of userlist) {
     //let {name} = pull
