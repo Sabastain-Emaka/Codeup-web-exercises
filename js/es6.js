@@ -44,6 +44,8 @@ users.push({
   // languages: languages
   name,email, languages
 });
+//console.log(users)
+
 
 // TODO: replace `var` with `let` in the following variable declarations
 let  emails = [];
@@ -56,10 +58,21 @@ let names = [];
 // users.forEach(function(user) {
 //   return names.push(user.name);
 // });
+
 const getEmails = (userlist) => {
   for (let pull of userlist) {
-    //let {email} = pull
-    emails.push(pull.email)
+    //let {name} = pull
+    emails.push(pull.name)
+  }
+}
+getNames(users);
+//console.log(emails);
+
+
+const getNames = (userlist) => {
+  for (let pull of userlist) {
+    //let {name} = pull
+    emails.push(pull.name)
   }
 }
 getNames(users);
