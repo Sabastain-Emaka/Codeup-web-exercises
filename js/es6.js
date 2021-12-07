@@ -109,7 +109,7 @@ for (let developer of developers) {
 //developers.forEach(function (developer) {
 
   // TODO: rewrite the assignment below to use template strings
-  //list += '<li> ${developer) '</li>';
+  list += '<li> ${developer) '</li>';
 
   //list += '<li>' + developer + '</li>';
 
