@@ -39,9 +39,9 @@ const languages = ['javascript', 'html', 'css'];
 
 // TODO: rewrite the object literal using object property shorthand
 users.push({
-  // name: name,
-  // email: email,
-  // languages: languages
+  // name,
+  // email,
+  // languages:
   name,email, languages
 });
 //console.log(users)
@@ -60,37 +60,35 @@ let names = [];
 // });
 
 // another way to write foreach function
-// users.forEach(user => names.push(user.name));
-// console.log(user.name)
+users.forEach(user => names.push(user.name));
+console.log(user.name)
 
-const getEmails = (userlist) => {
-  for (let pull of userlist) {
+// const getEmails = (userlist) => {
+//   for (let pull of userlist) {
     //let {name} = pull
-    emails.push(pull.name)
-  }
-}
-getEmails(users);
+//     emails.push(pull.name)
+//   }
+// }
+// getEmails(users);
 //console.log(emails);
 
 
-const getNames = (userlist) => {
-  for (let pull of userlist) {
+// const getNames = (userlist) => {
+//   for (let pull of userlist) {
     //let {name} = pull
-    emails.push(pull.name)
-  }
-}
-getNames(users);
+//     emails.push(pull.name)
+//   }
+// }
+// getNames(users);
 //console.log(Names);
 
 // TODO: replace `var` with `let` in the following declaration
 let developers = [];
-users.forEach(function(user) {
+users.forEach(user=({name,email,languages}) => {
   // TODO: rewrite the code below to use object destructuring assignment
   //       note that you can also use destructuring assignment in the function
   //       parameter definition
-  const {name,email,languages} = user  //User the user from the loop
-    //console.log(90)
-  //developers.push(name, email, languages)
+
 
   // const name = user.name;
   // const email = user.email;
