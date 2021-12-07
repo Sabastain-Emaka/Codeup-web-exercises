@@ -87,7 +87,7 @@
                     console.log(data);
                     $("#current-city").text("Current City: " + data.city.name);
                     for (var i = 0; i < data.list.length; i++) {
-                        if (i === 0 || i === 8 || i === 16 || i === 24 || i === 32) {
+                        if (i === 0 || i === 4 || i === 8 || i === 16 || i === 20) {
                             var html = " ";
                             var date = data.list[i].dt_txt;
                             var splitDate = date.split(" ");
