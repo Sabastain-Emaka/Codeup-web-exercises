@@ -67,4 +67,23 @@ $(document).ready(()=> {
     }, '');
 console.log(longestEmail);
 
+    // alternative solution
+// var longestEmail = userEmails.reduce(function (a, b)
+// { return a.length > b.length? a : b;});
+
+   // console.log(longestEmail);
+
+// Use .reduce to get the list of user's names in a single string.
+// Example: Your instructors are: ryan, luis, zach, fernando, justin.
+
+    // const userNamesString = users.reduce ((names,user) => {
+    //     if (names !== '') {
+    //         names += ', ';
+    //     }
+    //   return names + user.name;
+    // }, '');
+    // console.log(userNamesString);
+
+    // alternative solution
+    console.log(users.map(user => user.name).join(', '));
 })
