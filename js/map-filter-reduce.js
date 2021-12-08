@@ -62,7 +62,9 @@ $(document).ready(()=> {
 
 
     //Use .reduce to get the longest email from the list of users
-
-
+    const longestEmail= users.reduce((longest, user) => {
+        return user.email.length > longest.length ? user.email : length;
+    }, '');
+console.log(longestEmail);
 
 })
