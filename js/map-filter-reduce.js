@@ -87,5 +87,14 @@ console.log(longestEmail);
     // alternative solution
     //console.log(users.map(user => user.name).join(', '));
 
-    //Bonus.
+    //Bonus.Use .reduce to get the unique list of languages from the list of users.
+    const theLanguages = users.reduce((languages, user) => {
+        user.languages.forEach((language) => {
+            if (!languages.includes(language)) {
+                languages.push(language);
+            }
+        });
+    return languages;
+    }, []);
+console.log(theLanguages);
 })
