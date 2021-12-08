@@ -114,6 +114,10 @@ for (let developer of developers) {
   //list += '<li>' + developer + '</li>';
 
 }
+
 list += '</ul>';
-//console.log(list)
-//document.write(list);
+
+// console.log(list);
+// document.getElementById("message").innerHTML = list;
+
+// document.body.innerHTML = list;
