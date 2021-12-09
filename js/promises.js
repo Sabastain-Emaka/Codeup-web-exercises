@@ -22,6 +22,10 @@ const wait = milliseconds => {
 
 
 
+
+// alternative solution
+
+
 // const wait = (num) => {
 //     return new Promise((resolve) => {
 //         setTimeout(() => {
