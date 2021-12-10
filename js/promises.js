@@ -1,5 +1,6 @@
 
-
+"use strict";
+(() => {
 
 function getLastEventDateByUsername(username) {
     let GITHUB_API_URL = 'https://api.github.com/user/${username}/events/public'
@@ -11,7 +12,7 @@ function getLastEventDateByUsername(username) {
         )
 }
 
-getLastEventDateByUsername('sabastain-emaka').then(eventDate => (eventDate) )
+getLastEventDateByUsername('sabastainemaka').then(eventDate => (eventDate) )
 
 
 
@@ -50,9 +51,13 @@ const wait = milliseconds => {
 //         .then(event => event.created_at)
 //         .then(date => console.log(date));
 // };
-// lastCommit("sabastain-emaka");
+// lastCommit("sabastainemaka");
 
 
 
 
 
+
+
+
+})();
