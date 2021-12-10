@@ -1,18 +1,19 @@
 
 "use strict";
 (() => {
+    function getLastEventDateByUserTime(user) {
+        let GITHUB_API_URL = `https://api.github.com/users/${user}/events/public`
+        return fetch(GITHUB_API_URL, {headers: {'Authorization': `token ${GITHUB_KEY}`}})
+            .then(response => response.json()
+                .then( listOfEvents => {
 
-function getLastEventDateByUsername(username) {
-    let GITHUB_API_URL = 'https://api.github.com/user/${username}/events/public'
-    return fetch(GITHUB_API_URL, {headers: {'Authorization': 'token ${GITHUB_KEY}' }})
-        .then(response => response.json()
-            .then(listOfEvents => {
-                return listOfEvents[0].created_at;
-            })
-        )
-}
+                    return listOfEvents[0].created_at;
 
-getLastEventDateByUsername('sabastainemaka').then(eventDate => (eventDate) )
+                })
+            )
+    }
+
+    getLastEventDateByUserTime('sabastain-emaka').then(eventDate => console.log(eventDate))
 
 
 
@@ -24,6 +25,9 @@ const wait = milliseconds => {
     });
 }
  wait(3000).then(ms => console.log('it will show after ${ms/1000} seconds'))
+
+
+
 
 
 
@@ -51,7 +55,7 @@ const wait = milliseconds => {
 //         .then(event => event.created_at)
 //         .then(date => console.log(date));
 // };
-// lastCommit("sabastainemaka");
+// lastCommit("sabastain-emaka");
 
 
 
