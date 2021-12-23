@@ -1,0 +1,80 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description:  This template deploys a VPC in  us-east1  with a private subnet spread
+  across one Availability Zone. It deploys  a Linux t2.micro Instance with Security Group with no HTTP access.
+
+Mappings:
+  RegionMap:
+    us-east-1:
+      AMI:
+
+
+Resources:
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.8/29
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Region: us-east-1
+      Tags:
+        - Key: Name
+          Value: Security Project
+
+
+          PrivateSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: us-east-1a
+      CidrBlock: 10.0.0.8/29
+      MapPublicIpOnLaunch: false
+      Tags:
+        - Key: Name
+          Value: Security Project Private Subnet (AZ1a)
+
+    PrivateRoute:
+      Type: 'AWS::EC2::Route'
+      Properties:
+        RouteTableId: !Ref PrivateRouteTable
+        DestinationCidrBlock: 10.0.0.8/29
+
+
+      PrivateSubnetRouteTableAssociation:
+        Type: 'AWS::EC2::SubnetRouteTableAssociation'
+        Properties:
+          SubnetId: !Ref us-east-1a
+          RouteTableId: !Ref PrivateRouteTable
+
+SecurityGroup:
+  Type: 'AWS::EC2::SecurityGroup'
+  Properties:
+    GroupDescription: Enable SSH access via port 22
+    SecurityGroupIngress: false
+                            - IpProtocol: tcp
+                            FromPort: '22'
+                            ToPort: '22'
+                            CidrIp: 10.0.0.8/29
+    VpcId: !Ref VPC
+
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      AvailabiltyZone: us-east-1a
+      ImageId:
+      InstanceType: t2.micro
+      SubnetId: us-east-1a
+      SecurityGroupIds:
+        - !Ref SSHSecurityGroup
+      Tags:
+        - Key: Name
+          Value: Security Project
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          yum install httpd -y
+          service httpd start
+          echo "<html><body><h1>Hello from Region ${AWS::Region}<h1></body></html>" > /var/www/html/index.html
+Outputs:
+  PrivateIp:
+    Description: EC2 Instance Private Ip
+    Value: !GetAtt EC2Instance.PrivateIp
