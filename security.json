@@ -1,0 +1,94 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Template to Create a VPC, Subnet, EC2, SecurityGroup without untrusted access",
+  "Parameters": {
+    "ImageId": {
+      "Type": "String",
+      "Description": "Linux 2 AMI for us-east-1 Region",
+      "Default": "ami-0ed9277fb7eb570c9"
+    },
+    "VpcId": {
+      "Type": "String",
+      "Description": "VPC id",
+      "Default": "vpc-a39033de"
+    },
+    "SubnetId": {
+      "Type": "String",
+      "Description": "Subnet in which to launch an EC2",
+      "Default": "subnet-807aede6"
+    },
+    "AvailabilityZone": {
+      "Type": "String",
+      "Description": "Availability Zone into which instance will launch",
+      "Default": "us-east-1a"
+    },
+    "InstanceType": {
+      "Type": "String",
+      "Description": "Choosing  t2 micro ",
+      "Default": "t2.micro"
+    },
+    "KeyName": {
+      "Description": "SSH Keypair to login to the instance",
+      "Type": "AWS::EC2::KeyPair::KeyName",
+      "Default": "demokeypair"
+    }
+  },
+  "Resources": {
+    "DemoInstance": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "ImageId": {
+          "Ref": "ImageId"
+        },
+        "InstanceType": {
+          "Ref": "InstanceType"
+        },
+        "AvailabilityZone": {
+          "Ref": "AvailabilityZone"
+        },
+        "KeyName": {
+          "Ref": "KeyName"
+        },
+        "SecurityGroupIds": [
+          {
+            "Ref": "DemoSecurityGroup"
+          }
+        ],
+        "SubnetId": {
+          "Ref": "SubnetId"
+        }
+      }
+    },
+    "DemoSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "VpcId": {
+          "Ref": "VpcId"
+        },
+        "GroupDescription": "SG to allow SSH access via port 22",
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "10.0.0.8/29"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "SSH-SG"
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "DemoInstanceId": {
+      "Description": "Instance Id",
+      "Value": {
+        "Ref": "DemoInstance"
+      }
+    }
+  }
+}
